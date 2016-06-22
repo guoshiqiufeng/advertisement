@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="css/bootstrap-select.min.css" rel="stylesheet">
+    <link type="text/css" href="css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" href="css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link type="text/css" href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <title>新建广告</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-md-12">
+
+                        <div class="panel panel-primary">
+
+                            <div class="panel-body">
+                                <form class="form-horizontal" method="POST" >
+
+                                    <div class="form-group">
+                                        <div class="col-md-1"></div>
+                                        <select id="province" class="chosen-select col-md-2" title="">
+                                            <option value="北京">北京</option>
+                                            <option value="天津">天津</option>
+                                            <option value="河北">河北</option>
+                                            <option value="山西">山西</option>
+                                            <option value="内蒙古">内蒙古</option>
+                                            <option value="辽宁">辽宁</option>
+                                            <option value="吉林">吉林</option>
+                                            <option value="黑龙江">黑龙江</option>
+                                            <option value="上海">上海</option>
+                                            <option value="江苏">江苏</option>
+                                            <option selected value="山东">山东</option>
+                                        </select>
+                                        <select id="city" class="chosen-select col-md-2" title="">
+                                            <option value="青岛">青岛</option>
+                                            <option value="菏泽">菏泽</option>
+                                            <option selected value="德州">德州</option>
+                                            <option value="东营">东营</option>
+                                            <option value="济南">济南</option>
+                                            <option value="滨州">滨州</option>
+                                            <option value="临沂">临沂</option>
+                                            <option value="枣庄">枣庄</option>
+                                            <option value="济宁">济宁</option>
+                                            <option value="威海">威海</option>
+                                            <option value="烟台">烟台</option>
+                                        </select>
+                                        <select id="county" class="chosen-select col-md-2" title="">
+                                            <option value="夏津县">夏津县</option>
+                                            <option value="乐陵市">乐陵市</option>
+                                            <option value="陵县">陵县</option>
+                                            <option selected value="临邑县">临邑县</option>
+                                            <option value="庆云县">庆云县</option>
+                                        </select>
+                                        <select id="town" class="chosen-select col-md-2" title="">
+                                            <option value="不限">不限</option>
+                                            <option value="某某镇">某某镇</option>
+                                        </select>
+                                        <select id="village" class="chosen-select col-md-2" title="">
+                                            <option value="不限">不限</option>
+                                            <option value="某某村">某某村</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label">广告名称</label>
+                                        <div class="col-md-10">
+                                            <input id="" class="form-control" style="width: 230px"
+                                                        placeholder="请输入广告名称" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label">选择定向条件</label>
+                                        <div class="col-md-10">
+                                            <div class="radio radio-inline">
+                                                <input type="radio" id="inlineRadio1" value="option1" name="radioInline" checked="">
+                                                <label for="inlineRadio1">不限</label>
+                                            </div>
+                                            <div class="radio radio-inline">
+                                                <input type="radio" id="inlineRadio2" value="option2" name="radioInline" data-toggle="modal" data-target="#myModal">
+                                                <label for="inlineRadio2">省市县镇村</label>
+                                            </div>
+                                            <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content animated bounceInRight">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+                                                            </button>
+                                                            <button type="button" class="btn btn-danger" onclick="javascript:$('#selectp').val('');$('#selectp').trigger('chosen:updated');">清空全部</button>
+
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label class="font-noraml">选择区域</label>
+                                                            <div>
+                                                                <div class="input-group" style="width: 15%;float: left">
+                                                                    <select id="selectp1" data-placeholder="选择省" onchange="" class="chosen-select" style="width: 300px">
+                                                                        <option value="all">全国</option>
+                                                                        <option value="bj">北京</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="input-group" style="width: 15%;float: left">
+                                                                    <select id="selectp2" data-placeholder="选择市" onchange="" class="chosen-select" style="width: 300px">
+                                                                        <option value="all">全市</option>
+                                                                        <option value="bj">青岛</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="input-group" style="width: 15%;float: left">
+                                                                    <select id="selectp3" data-placeholder="选择县" onchange="" class="chosen-select" style="width: 300px">
+                                                                        <option value="all">全县</option>
+                                                                        <option value="bj">夏津县</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="input-group" style="width: 15%;float: left">
+                                                                    <select id="selectp4" data-placeholder="选择镇" onchange="" class="chosen-select" style="width: 300px">
+                                                                        <option value="all">全镇</option>
+                                                                        <option value="bj">夏津县</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="input-group" style="width: 15%;float: left">
+                                                                    <select id="selectp5" data-placeholder="选择村" onchange="" class="chosen-select" style="width: 300px">
+                                                                        <option value="all">全镇</option>
+                                                                        <option value="bj">夏津县</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div style="clear: both;"></div>
+                                                            </div>
+                                                                <div id="p1" >
+                                                                    <label class="font-noraml">选择区域</label>
+                                                                    <div class="input-group" style="width: 100%">
+                                                                        <select id="selectp" data-placeholder="请选择省份" class="chosen-select" multiple style="width:100%;" tabindex="4">
+                                                                            <option value="110000" hassubinfo="true">北京</option>
+                                                                            <option value="120000" hassubinfo="true">天津</option>
+                                                                            <option value="130000" hassubinfo="true">河北省</option>
+                                                                            <option value="140000" hassubinfo="true">山西省</option>
+                                                                            <option value="150000" hassubinfo="true">内蒙古自治区</option>
+                                                                            <option value="210000" hassubinfo="true">辽宁省</option>
+                                                                            <option value="220000" hassubinfo="true">吉林省</option>
+                                                                            <option value="230000" hassubinfo="true">黑龙江省</option>
+                                                                            <option value="310000" hassubinfo="true">上海</option>
+                                                                            <option value="320000" hassubinfo="true">江苏省</option>
+                                                                            <option value="330000" hassubinfo="true">浙江省</option>
+                                                                            <option value="340000" hassubinfo="true">安徽省</option>
+                                                                            <option value="350000" hassubinfo="true">福建省</option>
+                                                                            <option value="360000" hassubinfo="true">江西省</option>
+                                                                            <option value="370000" hassubinfo="true">山东省</option>
+                                                                            <option value="410000" hassubinfo="true">河南省</option>
+                                                                            <option value="420000" hassubinfo="true">湖北省</option>
+                                                                            <option value="430000" hassubinfo="true">湖南省</option>
+                                                                            <option value="440000" hassubinfo="true">广东省</option>
+                                                                            <option value="450000" hassubinfo="true">广西壮族自治区</option>
+                                                                            <option value="460000" hassubinfo="true">海南省</option>
+                                                                            <option value="500000" hassubinfo="true">重庆</option>
+                                                                            <option value="510000" hassubinfo="true">四川省</option>
+                                                                            <option value="520000" hassubinfo="true">贵州省</option>
+                                                                            <option value="530000" hassubinfo="true">云南省</option>
+                                                                            <option value="540000" hassubinfo="true">西藏自治区</option>
+                                                                            <option value="610000" hassubinfo="true">陕西省</option>
+                                                                            <option value="620000" hassubinfo="true">甘肃省</option>
+                                                                            <option value="630000" hassubinfo="true">青海省</option>
+                                                                            <option value="640000" hassubinfo="true">宁夏回族自治区</option>
+                                                                            <option value="650000" hassubinfo="true">新疆维吾尔自治区</option>
+                                                                            <option value="710000" hassubinfo="true">台湾省</option>
+                                                                            <option value="810000" hassubinfo="true">香港特别行政区</option>
+                                                                            <option value="820000" hassubinfo="true">澳门特别行政区</option>
+                                                                            <option value="990000" hassubinfo="true">海外</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                                                            <button type="button" class="btn btn-primary">保存</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label">广告类别</label>
+                                        <div class="col-md-10">
+                                            <select data-placeholder="选择类型" class="chosen-select">
+                                                <option value="屏保广告">屏保广告</option>
+                                                <option value="桌面广告">桌面广告</option>
+                                                <option value="侧边栏广告">侧边栏广告</option>
+                                                <option value="商城产品内部广告">商城产品内部广告</option>
+                                                <option value="通知型广告">通知型广告</option>
+                                                <option value="视频广告">视频广告</option>
+                                                <option value="弹出消息广告">弹出消息广告</option>
+                                            </select>
+                                            <select data-placeholder="选择类型" style="width: 20%" class="chosen-select">
+                                                <option value="字幕广告">字幕广告</option>
+                                                <option value="跟片广告">跟片广告</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label">广告规格</label>
+                                        <div class="col-md-10">
+                                            <img src="images/1.png">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <span class="col-md-2"></span>
+                                        <label for="" class="col-md-2 control-label">广告尺寸</label>
+                                        <label for="" class="col-md-4 control-label">广告位置</label>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <input type="checkbox" class="col-md-2">
+                                        <div class="col-md-4">198px x 40px图片</div>
+                                        <div class="col-md-3">右侧边栏右下</div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <input type="checkbox" class="col-md-2">
+                                        <div class="col-md-4">198px x 40px图片</div>
+                                        <div class="col-md-3">左侧边栏</div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label">投放日期</label>
+                                        <div class="col-md-6" id="datepicker">
+                                            <div class="input-daterange input-group" >
+                                                <input type="text" class="input-sm form-control" name="start" value="2015-11-11" />
+                                                <span id="zhi" class="input-group-addon">至</span>
+                                                <input id="end" type="text" class="input-sm form-control" name="end" value="2015-11-17" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input id="long" onchange="IfChecked(this)" type="checkbox">
+                                            <label for="long" style="font-weight: 100">长期投放</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label">投放时间</label>
+                                        <div class="col-md-10">
+                                            <div class="radio radio-inline">
+                                                <input type="radio" id="time1" value="option1" onchange="IfChecked(this)" name="time" checked="checked">
+                                                <label for="time1">全时间段</label>
+                                            </div>
+                                            <div class="radio radio-inline">
+                                                <input type="radio" id="time2" value="option2" onchange="IfChecked(this)" name="time">
+                                                <label for="time2">特定时间段</label>
+                                            </div>
+                                            <select id="starttime" data-placeholder="选择时间" class="chosen-select" style="width: 20%">
+                                                <option selected value="0:00">0:00</option>
+                                                <option value="1:00">1:00</option>
+                                                <option value="2:00">2:00</option>
+                                                <option value="3:00">3:00</option>
+                                                <option value="4:00">4:00</option>
+                                                <option value="5:00">5:00</option>
+                                                <option value="6:00">6:00</option>
+                                                <option value="7:00">7:00</option>
+                                                <option value="8:00">8:00</option>
+                                                <option value="9:00">9:00</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="11:00">11:00</option>
+                                                <option value="12:00">12:00</option>
+                                                <option value="13:00">13:00</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="17:00">17:00</option>
+                                                <option value="18:00">18:00</option>
+                                                <option value="19:00">19:00</option>
+                                                <option value="20:00">20:00</option>
+                                                <option value="21:00">21:00</option>
+                                                <option value="22:00">22:00</option>
+                                                <option value="23:00">23:00</option>
+                                                <option value="24:00">24:00</option>
+                                            </select>
+                                            <select id="endtime" data-placeholder="选择时间" class="chosen-select" style="width: 20%">
+                                                <option value="24:00">24:00</option>
+                                                <option value="23:00">23:00</option>
+                                                <option value="22:00">22:00</option>
+                                                <option value="21:00">21:00</option>
+                                                <option value="20:00">20:00</option>
+                                                <option value="19:00">19:00</option>
+                                                <option value="18:00">18:00</option>
+                                                <option value="17:00">17:00</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="13:00">13:00</option>
+                                                <option value="12:00">12:00</option>
+                                                <option value="11:00">11:00</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="9:00">9:00</option>
+                                                <option value="8:00">8:00</option>
+                                                <option value="7:00">7:00</option>
+                                                <option value="6:00">6:00</option>
+                                                <option value="5:00">5:00</option>
+                                                <option value="4:00">4:00</option>
+                                                <option value="3:00">3:00</option>
+                                                <option value="2:00">2:00</option>
+                                                <option value="1:00">1:00</option>
+                                                <option value="0:00">0:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="col-md-6 col-md-offset-0" style="color: #949494;font-size: 12px;">您想通过广告推广什么？请选择广告的推广标的物</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label">投放链接地址</label>
+                                        <div class="col-md-5">
+                                            <select id="a1" data-placeholder="选择类型" class="chosen-select" style="width: 40%">
+                                                <option value="网站链接">网站链接</option>
+                                                <option value="android">android</option>
+                                            </select>
+                                            <select id="a2" data-placeholder="选择类型" class="chosen-select" style="width: 40%">
+                                                <option value="商城网址">商城网址</option>
+                                                <option value="ID">ID</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-5">链接地址：<input type="text" placeholder="请输入链接地址"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label">上传广告</label>
+                                        <div class="col-md-10">
+                                            <div class="radio radio-inline">
+                                                <input type="radio" id="upload1" value="option1" onchange="IfChecked(this)" name="upload" checked="checked">
+                                                <label for="upload1">上传视频</label>
+                                            </div>
+                                            <div class="radio radio-inline">
+                                                <input type="radio" id="upload2" value="option2" onchange="IfChecked(this)" name="upload">
+                                                <label for="upload2">上传图片</label>
+                                            </div>
+                                            <div class="radio radio-inline">
+                                                <input type="radio" id="upload3" value="option2" onchange="IfChecked(this)" name="upload">
+                                                <label for="upload3">输入字幕文字</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="video">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <img src="images/u119.png">
+                                            <span style="position:absolute;margin-left: -130px;">1920pxX1080px</span>
+                                            <span style="position: absolute;height:26px;width:120px;margin-left: -140px;
+                                            margin-top: 30px;word-break:break-all;font-size: 10px;">（MP4、3gp格式，视频时长≥5S，≤15s）
+                                            </span>
+                                                <input style="position: absolute;width: 70px;height: 45px;text-align: left;left: 62px;top: 90px;font-family: 'Arial';font-size: 13px;color: #000000;text-decoration: none;"
+                                                       type="file" value="" data-label="上传视频" tabindex="0">
+                                            <img src="images/u126.png" style="margin-left: 80px">
+                                            <img src="images/u128.png" style="margin-left: -39px;">
+                                            <span style="position: absolute;top: 110px;left: 236px;">最多可使用3张图片</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="photo">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <img src="images/u119.png">
+                                            <span style="position:absolute;margin-left: -120px;">800pxX600px</span>
+                                            <span style="position: absolute;height:26px;width:120px;margin-left: -140px;
+                                            margin-top: 30px;word-break:break-all;font-size: 10px;">（100KB以内的JPG、PNG或GIF图片，GIF时常小于5S）
+                                            </span>
+                                            <input style="position: absolute;width: 70px;height: 45px;text-align: left;left: 62px;top: 90px;font-family: 'Arial';font-size: 13px;color: #000000;text-decoration: none;"
+                                                   type="file" value="" data-label="上传图片" tabindex="0">
+                                            <img src="images/u126.png" style="margin-left: 80px">
+                                            <img src="images/u128.png" style="margin-left: -39px;">
+                                            <span style="position: absolute;top: 110px;left: 236px;">最多可使用3张图片</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="text">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <textarea style="width: 375px;height: 160px;text-align: left;font-family: 'Arial';font-size: 13px;">请输入字幕信息</textarea>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label">付费模式</label>
+                                        <div class="col-md-10">
+                                            <div class="radio radio-inline">
+                                                <input type="radio" id="charge1" value="option1" onchange="IfChecked(this)" name="charge" checked="checked">
+                                                <label for="charge1">按时段收费</label>
+                                                <div style="background-color: #F2F2F2;width: 100%; font-size: 13px" >
+                                                    100X300商城右下角广告<br>
+                                                    <input id="all1" type="checkbox">
+                                                    <label for="all1" style="padding-left: 0px">全选</label>
+                                                    <input id="charge11" type="checkbox" style="margin-left: 5px">
+                                                    <label for="charge11" style="padding-left: 0px">00:00-1:00价格1000元/天</label>
+                                                    <input id="charge12" type="checkbox" style="margin-left: 5px">
+                                                    <label for="charge12" style="padding-left: 0px">2:00-3：00价格2万元/天</label><br>
+                                                    <input id="charge13" type="checkbox" >
+                                                    <label for="charge13" style="padding-left: 0px">2:00-3：00价格2万元/天</label><br>
+                                                    100X300商城左下角广告<br>
+                                                    <input id="all2" type="checkbox">
+                                                    <label for="all2" style="padding-left: 0px">全选</label>
+                                                    <input id="charge21" type="checkbox" style="margin-left: 5px">
+                                                    <label for="charge21" style="padding-left: 0px">00:00-1:00价格1000元/天</label>
+                                                    <input id="charge22" type="checkbox" style="margin-left: 5px">
+                                                    <label for="charge22" style="padding-left: 0px">2:00-3：00价格2万元/天</label><br>
+                                                    <input id="charge23" type="checkbox" >
+                                                    <label for="charge23" style="padding-left: 0px">2:00-3：00价格2万元/天</label><br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <div class="radio radio-inline">
+                                                <input type="radio" id="charge2" value="option1" onchange="IfChecked(this)" name="charge" checked="checked">
+                                                <label for="charge2">按点击收费</label>
+                                                <div style="background-color: #F2F2F2;width: 100%;font-size: 13px">
+                                                    <input id="all3" type="checkbox">
+                                                    <label for="all3" style="padding-left: 0px">全选</label>
+                                                    <input id="charge31" type="checkbox" style="margin-left: 10px">
+                                                    <label for="charge31" style="padding-left: 0px">100X300商城右下角广告  0.8元/点击</label>
+                                                    <input id="charge32" type="checkbox" style="margin-left: 10px">
+                                                    <label for="charge32" style="padding-left: 0px">100X300商城右下角广告  0.8元/点击</label><br>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <button type="button" class="btn btn-default">取消</button>
+                                            <button type="submit" class="btn btn-default" style="background-color: #c2c2c2;border-color: #c2c2c2;color: #FFF;">下一步</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="list-group" style="margin-top: 20px">
+                    <a href="#" class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="images/u225.png">
+                            </div>
+                            <div class="col-md-9">
+                                <div style="font-weight: 700">8宝灵机广告</div>
+                                <div style="padding-top: 10px;font-size: 12px;color: #AEAEAE;">
+                                    <span>审核中</span>
+                                    <span style="margin-left: 15px">2016-04-25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="images/u225.png">
+                            </div>
+                            <div class="col-md-9">
+                                <div style="font-weight: 700">8宝灵机广告</div>
+                                <div style="padding-top: 10px;font-size: 12px;color: #AEAEAE;">
+                                    <span>审核中</span>
+                                    <span style="margin-left: 15px">2016-04-25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="images/u225.png">
+                            </div>
+                            <div class="col-md-9">
+                                <div style="font-weight: 700">8宝灵机广告</div>
+                                <div style="padding-top: 10px;font-size: 12px;color: #AEAEAE;">
+                                    <span>审核中</span>
+                                    <span style="margin-left: 15px">2016-04-25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="images/u225.png">
+                            </div>
+                            <div class="col-md-9">
+                                <div style="font-weight: 700">8宝灵机广告</div>
+                                <div style="padding-top: 10px;font-size: 12px;color: #AEAEAE;">
+                                    <span>审核中</span>
+                                    <span style="margin-left: 15px">2016-04-25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/plugins/chosen/chosen.jquery.js"></script>
+    <script type="text/javascript" src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <script type="text/javascript">
+        window.onload=function () {
+            $("#starttime_chosen").hide();
+            $("#endtime_chosen").hide();
+            $("#text").hide();
+            $("#photo").hide();
+        }
+        var config={
+            ".chosen-select":{},
+            ".chosen-select-deselect":{allow_single_deselect:true},
+            ".chosen-select-no-single":{disable_search_threshold:10},
+            ".chosen-select-no-results":{no_results_text:"Oops, nothing found!"},
+            ".chosen-select-width":{width:"95%"}
+        };
+        for(var selector in config){
+            $(selector).chosen(config[selector])
+        }
+        function IfChecked(obj) {
+            if(obj.id=="long"){
+                if(obj.checked){
+                    $("#zhi").hide();
+                    $("#end").hide();
+                }else{
+                    $("#zhi").show();
+                    $("#end").show();
+                }
+            }else if(obj.id=="time1"){
+                if(obj.checked){
+                    $("#starttime_chosen").hide();
+                    $("#endtime_chosen").hide();
+                }
+            }else if(obj.id=="time2"){
+                if(obj.checked){
+                    $("#starttime_chosen").show();
+                    $("#endtime_chosen").show();
+                }
+            }else if(obj.id=="upload1"){
+                if(obj.checked){
+                    $("#video").show();
+                    $("#text").hide();
+                    $("#photo").hide();
+                }
+            }else if(obj.id=="upload2"){
+                if(obj.checked){
+                    $("#photo").show();
+                    $("#text").hide();
+                    $("#video").hide();
+                }
+            }else if(obj.id=="upload3"){
+                if(obj.checked){
+                    $("#text").show();
+                    $("#video").hide();
+                    $("#photo").hide();
+                }
+            }
+
+
+        }
+        $("#selectp1_chosen")[0].style.width=100+"%";
+        $("#selectp2_chosen")[0].style.width=100+"%";
+        $("#selectp3_chosen")[0].style.width=100+"%";
+        $("#selectp4_chosen")[0].style.width=100+"%";
+        $("#selectp5_chosen")[0].style.width=100+"%";
+        $(".chosen-container-multi")[0].style.width=100+"%";
+        $("#datepicker .input-daterange").datepicker({keyboardNavigation: false, forceParse: false, autoclose: true});
+    </script>
+</body>
+</html>

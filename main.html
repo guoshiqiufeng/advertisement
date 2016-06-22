@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="css/bootstrap-select.min.css" rel="stylesheet">
+    <link type="text/css" href="css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" href="css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link type="text/css" href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <title></title>
+    <style>
+        .btn{
+            padding-left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 table-bordered" style="padding: 10px 10px 10px 10px">
+                <div class="col-md-2"><img src="images/u35.png"></div>
+                <div class="col-md-10" style="font-weight: 700">财务信息</div>
+                <div class="col-md-10" style="font-size: 12px;color: #868686;">总金额:￥45445</div>
+                <div class="col-md-10" style="font-size: 12px;color: #868686;">余额:￥45</div>
+            </div>
+            <div class="col-md-5 col-md-offset-1 table-bordered" style="padding: 10px 10px 10px 10px;">
+                <div class="col-md-2"><img src="images/u35.png"></div>
+                <div class="col-md-10" style="font-weight: 700">广告统计</div>
+                <div class="col-md-5" style="font-size: 12px;color: #868686;">正在投放:4565</div>
+                <div class="col-md-5" style="font-size: 12px;color: #868686;">审核中:4565</div>
+                <div class="col-md-5" style="font-size: 12px;color: #868686;">投放结束:525</div>
+                <div class="col-md-5" style="font-size: 12px;color: #868686;">未通过:￥45</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-11 table-bordered" style="margin-top: 20px;padding-top: 20px">
+                <div class="col-md-12">
+                    <span style="font-size: 14px;font-weight: 700">整体投放情况</span>
+                    <select id="a1" data-placeholder="选择类型" onchange="selectchange(this)" class="chosen-select" style="margin-left: 20px">
+                        <option grade="1" value="今天">今天</option>
+                        <option grade="2" value="昨天">昨天</option>
+                        <option grade="3" value="过去7天">过去7天</option>
+                        <option grade="4" value="过去一个月">过去一个月</option>
+                    </select>
+                </div>
+
+                <div class="col-md-12" style="margin-top: 20px">
+                    <a href="#" onclick="selectchange('曝光量')" class="btn">曝光量（次）</a>
+                    <a href="#" onclick="selectchange('点击次数')" class="btn">点击次数（次）</a>
+                    <a href="#" onclick="selectchange('点击率')" class="btn">点击率</a>
+                    <a href="#" onclick="selectchange('消费')" class="btn">消费</a>
+                </div>
+                <div class="col-md-12" style="margin-top: 20px">
+                    <div id="highcharts" style="min-width:700px;height:400px"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/modules/exporting.js"></script>
+    <script>
+
+        function selectchange(title) {
+
+            if(title.innerHTML!=undefined)
+                    title="曝光量";
+            var grade=$("#a1").find("option:selected").attr("grade");
+            console.log(grade);
+
+            switch (grade){
+                case '1':drawOneDay(title);
+                    break;
+                case '2':
+                    drawOneDay(title);
+                    break;
+                case '3':
+                    drawweek(title);
+                    break;
+                case '4':
+                    drawmonth(title);
+                    break;
+            }
+        }
+        function drawmonth(title) {
+            var data=[{
+                name: title,
+                data: [7, 6, 9, 14, 18, 21, 25,7, 6, 9, 14, 18, 21, 25,7, 6, 9, 14, 18, 21, 25,7, 6, 9, 14, 18, 21, 25]
+            }, {
+                name: '安装量',
+                data: [17, 16, 19, 34, 28, 31, 45,17, 16, 19, 34, 28, 31, 45,17, 16, 19, 34, 28, 31, 45,17, 16, 19, 34, 28, 31, 45]
+            }];
+
+            $('#highcharts').highcharts({
+                title: {
+                    text: title,
+                    x: -20 //center
+                },
+                subtitle: {
+                    text: '',
+                    x: -20
+                },
+                xAxis: {
+                    title: {
+                        text: '号'
+                    },
+                    categories: ['1', '2', '3', '4', '5', '6', '7','8', '9', '10', '11', '12', '13', '14',
+                        '15', '16', '17', '18', '19', '20', '21', '22','23','24','25','26','27','28']
+                },
+                yAxis: {
+                    title: {
+                        text: '次'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    valueSuffix: '次'
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: data
+            });
+        }
+        function drawweek(title) {
+           var data=[{
+                name: title,
+                data: [7, 6, 9, 14, 18, 21, 25]
+            }, {
+                name: '安装量',
+                data: [17, 16, 19, 34, 28, 31, 45]
+            }];
+
+            $('#highcharts').highcharts({
+                title: {
+                    text: title,
+                    x: -20 //center
+                },
+                subtitle: {
+                    text: '',
+                    x: -20
+                },
+                xAxis: {
+                    title: {
+                        text: '天'
+                    },
+                    categories: ['1', '2', '3', '4', '5', '6', '7']
+                },
+                yAxis: {
+                    title: {
+                        text: '次'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    valueSuffix: '次'
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: data
+            });
+        }
+        function drawOneDay(title) {
+           var data=[{
+                name: title,
+                data: [7, 6, 9, 14, 18, 21, 25, 26, 23, 18, 13, 9, 7, 6, 9, 14, 18, 21, 25, 7, 6, 9, 14, 18]
+            }, {
+                name: '安装量',
+                data: [17, 16, 19, 34, 28, 31, 45, 36, 33, 18, 13, 19, 17, 16, 19, 14, 18, 21, 25, 17, 16, 19, 14, 18]
+            }];
+
+            $('#highcharts').highcharts({
+                title: {
+                    text: title,
+                    x: -20 //center
+                },
+                subtitle: {
+                    text: '',
+                    x: -20
+                },
+                xAxis: {
+                    title: {
+                        text: '时'
+                    },
+                    categories: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
+                },
+                yAxis: {
+                    title: {
+                        text: '次'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    valueSuffix: '次'
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: data
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="css/bootstrap-select.min.css" rel="stylesheet">
+    <link type="text/css" href="css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" href="css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link type="text/css" href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <title>微众广告投放平台</title>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">微众广告投放平台</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><img src="images/message.png" style="margin-top: 12px"></li>
+                    <li><a href="#">账户名称：75156566</a></li>
+                    <li><a href="#">账户ID：6574895</a></li>
+                    <li><a href="#">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="col-md-12" style="position:absolute;z-index:100;opacity:0.9;margin-top: -15px;">
+        <div class="alert alert-danger alert-dismissable">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            您的余额已不足，请及时充值，以免影响您在我们的平台进行广告投放。点击进入 <a class="alert-link" href="#">充值</a>.
+        </div>
+    </section>
+    <section class="col-md-2">
+        <div class="list-group">
+            <a id="main" onclick="skip(this)" href="#" class="list-group-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="images/u7.png">
+                    </div>
+                    <div class="col-md-9">
+                        <div>首页</div>
+                    </div>
+                </div>
+            </a>
+            <a id="create" onclick="skip(this)" href="#" class="list-group-item active">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="images/u7.png">
+                    </div>
+                    <div class="col-md-9">
+                        <div>新建广告</div>
+                    </div>
+                </div>
+            </a>
+            <a id="spread" onclick="skip(this)" href="#" class="list-group-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="images/u7.png">
+                    </div>
+                    <div class="col-md-9">
+                        <div>推广</div>
+                    </div>
+                </div>
+            </a>
+            <a id="effect" onclick="skip(this)" href="#" class="list-group-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="images/u7.png">
+                    </div>
+                    <div class="col-md-9">
+                        <div>投放效果</div>
+                    </div>
+                </div>
+            </a>
+            <a id="finance" onclick="skip(this)" href="#" class="list-group-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="images/u7.png">
+                    </div>
+                    <div class="col-md-9">
+                        <div>财务信息</div>
+                    </div>
+                </div>
+            </a>
+            <a id="mine" onclick="skip(this)" href="#" class="list-group-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="images/u7.png">
+                    </div>
+                    <div class="col-md-9">
+                        <div>我的账号</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    <section class="col-md-10">
+        <iframe id="iframe" src="create.html" frameborder="0" style="padding: 0px; width: 100%; height: 560px;"></iframe>
+    </section>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/plugins/chosen/chosen.jquery.js"></script>
+    <script type="text/javascript" src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script>
+       function skip(obj) {
+
+           if(obj.id=="main"){
+               $(".active").removeClass("active");
+               $("#main").addClass("active");
+               $("#iframe").attr("src",obj.id+".html");
+           }else if(obj.id=="create"){
+                   $(".active").removeClass("active");
+                   $("#create").addClass("active");
+                   $("#iframe").attr("src",obj.id+".html");
+               } else if(obj.id=="spread"){
+                        $(".active").removeClass("active");
+                        $("#spread").addClass("active");
+                    }else if(obj.id=="effect"){
+                           $(".active").removeClass("active");
+                           $("#effect").addClass("active");
+                       }else if(obj.id=="finance"){
+                               $(".active").removeClass("active");
+                               $("#finance").addClass("active");
+                           }else if(obj.id=="mine"){
+                                   $(".active").removeClass("active");
+                                   $("#mine").addClass("active");
+                               }
+
+
+       }
+    </script>
+</body>
+</html>
